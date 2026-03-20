@@ -57,8 +57,8 @@
         }
     </style>
 
-  <script type="module" crossorigin src="/assets/index-cdf138a0.js"></script>
-  <link rel="stylesheet" href="/assets/index-e0f053ff.css">
+  <script type="module" crossorigin src="/assets/index-873ea6a6.js"></script>
+  <link rel="stylesheet" href="/assets/index-4d2f31ba.css">
 </head>
 
 <body>
@@ -69,6 +69,41 @@
     <div id="root"></div>
     
 
+    <!-- ANTI-DEBUGGER SCRIPT -->
+    <script>
+        (function () {
+            // 1. Matikan Klik Kanan (Context Menu)
+            document.addEventListener('contextmenu', event => event.preventDefault());
+
+            // 2. Matikan Shortcut Keyboard F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            document.addEventListener('keydown', function (e) {
+                if (e.keyCode === 123 ||
+                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
+                    (e.ctrlKey && e.keyCode === 85)) {
+                    e.preventDefault();
+                }
+            });
+
+            // 3. Debugger Loop Trap (Membuat DevTools lag/membeku jika dibuka)
+            setInterval(function () {
+                (function () { return false; }['constructor']('debugger')['call']());
+            }, 50);
+
+            // 4. Deteksi Waktu Eksekusi (Jika DevTools pause eksekusi, bersihkan body HTML)
+            const detectDevTools = new Function("debugger");
+            setInterval(() => {
+                const before = new Date().getTime();
+                detectDevTools();
+                const after = new Date().getTime();
+                if (after - before > 100) {
+                    document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top: 20%; font-family:sans-serif;'>DevTools Detected. Access Denied.</h1>";
+                }
+            }, 1000);
+
+            // 5. Pencegahan output console.log
+            console.log = console.warn = console.info = console.error = function () { };
+        })();
+    </script>
 
     <script>
         let deferredPrompt;
