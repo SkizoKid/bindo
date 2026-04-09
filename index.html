@@ -57,8 +57,8 @@
         }
     </style>
 
-  <script type="module" crossorigin src="/assets/index-09792edc.js"></script>
-  <link rel="stylesheet" href="/assets/index-2aa872cf.css">
+  <script type="module" crossorigin src="/assets/index-70ecb01c.js"></script>
+  <link rel="stylesheet" href="/assets/index-fcceab9d.css">
 </head>
 
 <body>
@@ -84,24 +84,12 @@
                 }
             });
 
-            // 3. Debugger Loop Trap (Membuat DevTools lag/membeku jika dibuka)
+            // 3. Debugger Loop Trap Ringan
             setInterval(function () {
-                (function () { return false; }['constructor']('debugger')['call']());
-            }, 50);
-
-            // 4. Deteksi Waktu Eksekusi (Jika DevTools pause eksekusi, bersihkan body HTML)
-            const detectDevTools = new Function("debugger");
-            setInterval(() => {
-                const before = new Date().getTime();
-                detectDevTools();
-                const after = new Date().getTime();
-                if (after - before > 100) {
-                    document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top: 20%; font-family:sans-serif;'>DevTools Detected. Access Denied.</h1>";
-                }
-            }, 1000);
-
-            // 5. Pencegahan output console.log
-            console.log = console.warn = console.info = console.error = function () { };
+                try {
+                    (function () { return false; }['constructor']('debugger')['call']());
+                } catch (err) { }
+            }, 100);
         })();
     </script>
 
