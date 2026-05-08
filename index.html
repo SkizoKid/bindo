@@ -2,289 +2,156 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <!-- Ikon Diperbarui Menyerupai Videy -->
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23000000'/%3E%3Cpolygon points='40,30 70,50 40,70' fill='%23FFFFFF'/%3E%3C/svg%3E" />
-    <link rel="manifest" href="manifest.json">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Koleksi Lokal - Best Streaming Video</title>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Videy Stream - Private & Secure High Quality Video Streaming." />
+  <title>Videy Stream</title>
 
-    <script type="text/javascript">
-        (function (l) {
-            // Redirect logic for /#:id to /:id
-            if (l.hash && l.hash.startsWith('#/')) {
-                const newPath = l.hash.replace('#', '');
-                window.location.replace(newPath); // Redirect to /:id
-            }
+  <base href="/" />
 
-            // Existing logic for handling search parameters
-            if (l.search[1] === "/") {
-                var decoded = l.search
-                    .slice(1)
-                    .split("&")
-                    .map(function (s) {
-                        return s.replace(/~and~/g, "&");
-                    })
-                    .join("?");
-                window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
-            }
-        })(window.location);
-    </script>
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Videy Stream" />
+  <link rel="apple-touch-icon" href="/icon.png" />
 
-    <script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
-
-
-
-    <!-- Histats.com  START  (aync)-->
-    <script type="text/javascript">var _Hasync = _Hasync || [];
-        _Hasync.push(['Histats.start', '1,4570309,4,0,0,0,00010000']);
-        _Hasync.push(['Histats.fasi', '1']);
-        _Hasync.push(['Histats.track_hits', '']);
-        (function () {
-            var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-            hs.src = ('//s10.histats.com/js15_as.js');
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-        })();</script>
-    <!-- Histats.com  END  -->
-
-    <style>
-        .glass {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+  <link rel="stylesheet" href="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.css" type="text/css" />
+  <script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
+  <script>(function (s) { s.dataset.zone = '3689341', s.src = 'https://al5sm.com/tag.min.js' })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <script type="text/javascript">
+      (function (l) {
+        if (l.search) {
+          var q = {};
+          l.search.slice(1).split('&').forEach(function (v) {
+            var a = v.split('=');
+            q[a[0]] = decodeURIComponent(a[1] || '').replace(/\+/g, ' ');
+          });
+          if (q.p !== undefined) {
+            window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + (q.p || '') +
+              (q.q ? ('?' + q.q) : '') +
+              l.hash
+            );
+          }
         }
-    </style>
+      }(window.location));
+  </script>
 
+
+  <!-- Histats.com  START  (async)-->
+  <script type="text/javascript">var _Hasync = _Hasync || [];
+    _Hasync.push(['Histats.start', '1,4877008,4,0,0,0,00010000']);
+    _Hasync.push(['Histats.fasi', '1']);
+    _Hasync.push(['Histats.track_hits', '']);
+    (function () {
+      var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+      hs.src = ('//s10.histats.com/js15_as.js');
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+    })();</script>
+  <!-- Histats.com  END  -->
+  <script type="module" crossorigin src="/assets/index-da01af10.js"></script>
+  <link rel="stylesheet" href="/assets/index-cc81f24c.css">
 </head>
 
-<body>
-    <!-- Histats noscript (moved from head) -->
-    <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4570309&101" alt="web stats analysis"
-                border="0"></a></noscript>
+<body class="bg-zinc-950">
+  <div id="root"></div>
+  <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4877008&101" alt="hit counter" border="0"></a></noscript>
+  
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function (reg) { console.log('SW registered:', reg.scope); })
+          .catch(function (err) { console.log('SW registration failed:', err); });
+      });
+    }
+  </script>
 
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <script>
+    (function () {
+      function detectAdBlockExtension() {
+        return new Promise((resolve) => {
+          const bait = document.createElement("div");
+          bait.className = "adsbox ad-banner ad-unit text-ad";
+          bait.style.cssText = "width:1px;height:1px;position:absolute;left:-9999px;top:-9999px;visibility:hidden;";
+          document.body.appendChild(bait);
+          setTimeout(() => {
+            const isBlocked = !bait.parentElement || bait.offsetParent === null || window.getComputedStyle(bait).display === "none";
+            if (bait.parentElement) document.body.removeChild(bait);
+            resolve(isBlocked);
+          }, 150);
+        });
+      }
 
-    <!-- ANTI-DEBUGGER SCRIPT -->
-    <script>
-        (function () {
-            // 1. Matikan Klik Kanan (Context Menu)
-            document.addEventListener('contextmenu', event => event.preventDefault());
+      function detectDnsBlock() {
+        const adUrl = 'https://concertskidwhich.com/prp9ts3x?key=4494efbd9b3305226057c4ce5c6985e8';
+        return fetch(adUrl, { method: 'HEAD', mode: 'no-cors', cache: 'no-store' })
+          .then(() => false)
+          .catch(() => true);
+      }
 
-            // 2. Matikan Shortcut Keyboard F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-            document.addEventListener('keydown', function (e) {
-                if (e.keyCode === 123 ||
-                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
-                    (e.ctrlKey && e.keyCode === 85)) {
-                    e.preventDefault();
+      function showAdblockPopup(type) {
+        if (document.getElementById("adblock-overlay")) return;
+        const overlay = document.createElement("div");
+        overlay.id = "adblock-overlay";
+        const styles = `
+                #adblock-overlay {
+                    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                    background-color: rgba(0, 0, 0, 0.98); display: flex; justify-content: center;
+                    align-items: center; z-index: 999999; opacity: 0; transition: opacity 0.5s ease;
+                    font-family: -apple-system, system-ui, sans-serif; backdrop-filter: blur(8px);
                 }
-            });
+                .adblock-popup {
+                    background-color: #09090b; color: #fafafa; padding: 40px 32px; border-radius: 24px;
+                    text-align: center; max-width: 450px; width: 90%;
+                    box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 50px rgba(0,0,0,0.5);
+                    transform: translateY(20px); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+                }
+                .adblock-popup h2 { margin: 0 0 16px; font-size: 28px; font-weight: 800; color: #ef4444; letter-spacing: -0.025em; }
+                .adblock-popup p { margin: 0 0 32px; font-size: 16px; line-height: 1.6; color: #a1a1aa; }
+                #refresh-page-btn {
+                    background-color: #ef4444; color: white; border: none; border-radius: 12px;
+                    padding: 14px 28px; font-size: 16px; font-weight: 700; cursor: pointer;
+                    transition: all 0.3s ease; width: 100%; box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.3);
+                }
+                #refresh-page-btn:hover { background-color: #dc2626; transform: translateY(-2px); }
+            `;
 
-            // 3. Debugger Loop Trap Ringan
-            setInterval(function () {
-                try {
-                    (function () { return false; }['constructor']('debugger')['call']());
-                } catch (err) { }
-            }, 100);
-        })();
-    </script>
+        let title = 'AdBlocker Terdeteksi';
+        let message = 'Untuk menjaga layanan streaming kami tetap gratis dan cepat, mohon nonaktifkan ad blocker atau whitelist domain kami.';
 
-    <script>
-        let deferredPrompt;
-        const installModal = document.getElementById('install-modal');
-        const installBtn = document.getElementById('btn-install');
-        const closeBtn = document.getElementById('btn-close');
-
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then(reg => { })
-                    .catch(err => { });
-            });
+        if (type === 'dns') {
+          title = 'Pemblokiran Jaringan Terdeteksi';
+          message = 'DNS atau jaringan kamu memblokir komponen penting. Mohon nonaktifkan pemblokiran iklan berbasis jaringan untuk melanjutkan.';
         }
 
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installModal.classList.remove('hidden');
-        });
+        overlay.innerHTML = `<style>${styles}</style><div class="adblock-popup"><h2>${title}</h2><p>${message}</p><button id="refresh-page-btn">Sudah Dinonaktifkan, Muat Ulang</button></div>`;
+        document.body.appendChild(overlay);
 
-        installBtn.addEventListener('click', () => {
-            installModal.classList.add('hidden');
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    deferredPrompt = null;
-                });
-            }
-        });
+        setTimeout(() => {
+          overlay.style.opacity = "1";
+          overlay.querySelector(".adblock-popup").style.transform = "translateY(0)";
+        }, 50);
 
-        closeBtn.addEventListener('click', () => {
-            installModal.classList.add('hidden');
-        });
-    </script>
+        document.getElementById("refresh-page-btn").addEventListener("click", () => location.reload());
+      }
 
-    <script>
-        (function () {
-            /**
-             * Method 1: Detect AdBlocker based on browser extensions.
-             */
-            function detectAdBlockExtension() {
-                return new Promise((resolve) => {
-                    const bait = document.createElement("div");
-                    bait.className = "adsbox ad-banner ad-unit text-ad";
-                    bait.style.width = "1px";
-                    bait.style.height = "1px";
-                    bait.style.position = "absolute";
-                    bait.style.left = "-9999px";
-                    bait.style.top = "-9999px";
-                    bait.style.visibility = "hidden";
-                    document.body.appendChild(bait);
-
-                    setTimeout(() => {
-                        const isBlocked = !bait.parentElement || bait.offsetParent === null || window.getComputedStyle(bait).display === "none";
-                        if (bait.parentElement) {
-                            document.body.removeChild(bait);
-                        }
-                        resolve(isBlocked);
-                    }, 100);
-                });
-            }
-
-            /**
-             * Method 2: Detect DNS-based ad blockers.
-             */
-            function detectDnsBlock() {
-                const adUrl = 'https://concertskidwhich.com/prp9ts3x?key=4494efbd9b3305226057c4ce5c6985e8';
-
-                return fetch(adUrl, { method: 'HEAD', mode: 'no-cors', cache: 'no-store' })
-                    .then(() => false)
-                    .catch(() => true);
-            }
-
-            /**
-             * Displays a sleek, dark-themed adblock pop-up with a specific message.
-             * @param {'extension'|'dns'} type The type of ad blocker detected.
-             */
-            function showAdblockPopup(type) {
-                if (document.getElementById("adblock-overlay")) {
-                    return;
-                }
-
-                const overlay = document.createElement("div");
-                overlay.id = "adblock-overlay";
-
-                // CSS for a minimalist, dark theme
-                const styles = `
-            #adblock-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.95);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 99999;
-                opacity: 0;
-                transition: opacity 0.4s ease;
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            }
-            .adblock-popup {
-                background-color: #121212;
-                color: #e0e0e0;
-                padding: 30px;
-                border-radius: 12px;
-                text-align: center;
-                max-width: 400px;
-                width: 85%;
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-                transform: scale(0.95);
-                transition: transform 0.4s ease;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            .adblock-popup h2 {
-                margin: 0 0 10px;
-                font-size: 22px;
-                font-weight: 600;
-                color: #2ecc71; /* A calm green accent */
-            }
-            .adblock-popup p {
-                margin: 0 0 20px;
-                font-size: 15px;
-                line-height: 1.5;
-                color: #b0b0b0;
-            }
-            #refresh-page-btn {
-                background-color: #27ae60;
-                color: white;
-                border: none;
-                border-radius: 8px;
-                padding: 10px 20px;
-                font-size: 15px;
-                font-weight: 500;
-                cursor: pointer;
-                transition: background-color 0.2s ease, transform 0.2s ease;
-            }
-            #refresh-page-btn:hover {
-                background-color: #2c9c57;
-                transform: translateY(-1px);
-            }
-        `;
-
-                let title, message;
-                if (type === 'extension') {
-                    title = 'Ad Blocker Detected';
-                    message = 'This site relies on ads to stay free. Please consider **disabling your ad blocker extension** or whitelisting our website to support us.';
-                } else if (type === 'dns') {
-                    title = 'DNS Ad Blocker Detected';
-                    message = 'Your DNS provider is likely blocking our ads. To view this site properly, please consider **changing your DNS settings** or disabling any ad-blocking features on your network.';
-                } else {
-                    return;
-                }
-
-                overlay.innerHTML = `
-            <style>${styles}</style>
-            <div class="adblock-popup">
-                <h2>${title}</h2>
-                <p>${message}</p>
-                <button id="refresh-page-btn">I've Disabled It</button>
-            </div>
-        `;
-                document.body.appendChild(overlay);
-
-                setTimeout(() => {
-                    overlay.style.opacity = "1";
-                    overlay.querySelector(".adblock-popup").style.transform = "scale(1)";
-                }, 10);
-
-                document.getElementById("refresh-page-btn").addEventListener("click", () => {
-                    location.reload();
-                });
-            }
-
-            /**
-             * Run detection on page load and display the appropriate pop-up.
-             */
-            window.addEventListener("load", async () => {
-                const isExtensionBlocked = await detectAdBlockExtension();
-                if (isExtensionBlocked) {
-                    showAdblockPopup('extension');
-                    return;
-                }
-
-                const isDnsBlocked = await detectDnsBlock();
-                if (isDnsBlocked) {
-                    showAdblockPopup('dns');
-                }
-            });
-
-        })();
-    </script>
-
+      window.addEventListener("load", async () => {
+        const extensionBlocked = await detectAdBlockExtension();
+        if (extensionBlocked) {
+          showAdblockPopup('extension');
+          return;
+        }
+        const dnsBlocked = await detectDnsBlock();
+        if (dnsBlocked) {
+          showAdblockPopup('dns');
+        }
+      });
+    })();
+  </script>
 </body>
 
 </html>
